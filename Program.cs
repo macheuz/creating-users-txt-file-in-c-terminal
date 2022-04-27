@@ -70,9 +70,7 @@ namespace program
 
     class Program
     {
-        static string createFile(){
-            Console.WriteLine("File name: ");
-            string? archiveName = Console.ReadLine();
+        static string createFile(string archiveName){
             archiveName = archiveName + ".txt";
             using (StreamWriter writer = new StreamWriter(archiveName, true)){
 	        writer.WriteLine("List of users");
@@ -87,9 +85,9 @@ namespace program
 {
         for(int x=0; x<user.Length; x++){
             writer.Write("{0};", user[x].Name);
-            writer.Write(" {0};", user[x].Account);
-            writer.Write(" {0};", user[x].Phonenumber);
-            writer.WriteLine("{0}; {1}; {2}; {3}; {4}; {5}; {6}; ", user[x].peopleAdress.Number, 
+            writer.Write("{0};", user[x].Account);
+            writer.Write("{0};", user[x].Phonenumber);
+            writer.WriteLine("{0};{1};{2};{3};{4};{5};{6}; ", user[x].peopleAdress.Number, 
             user[x].peopleAdress.Street, user[x].peopleAdress.Neighborhood, user[x].peopleAdress.City,
             user[x].peopleAdress.State, user[x].peopleAdress.Country, user[x].peopleAdress.Zipcode);
         }
@@ -132,14 +130,50 @@ namespace program
             return adr;
         }
 
+
+        static bool verifyIfFile_txtExists(string filename){
+            string path = "../Creating users list/"+filename;
+            bool result = File.Exists(path);
+            if(result == false){
+                Console.WriteLine("File Not Found!");
+                Console.WriteLine("Create a file {0}?\nY or N:", filename);
+                string? check = Console.ReadLine();
+                check = check.ToLower();
+                if(check == "y"){
+                    createFile(filename);
+                    return true;
+                }
+                else if(check != "y"){
+                    return false;
+                }
+            }
+            return true;
+        }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Do you want to create a new list?");
             Console.WriteLine("Y or N: ");
-            string? c = Console.ReadLine();
-            string nameList = "Users.txt";
-            if (c == "Y"){
-                 nameList = createFile();
+            string? c = "n";
+            c = Console.ReadLine();
+            c = c.ToLower();
+            string? nameList = "Users.txt";
+            if (c == "y"){
+                Console.WriteLine("File name: ");
+                string? archiveName = Console.ReadLine();
+                 nameList = createFile(archiveName);
+            }
+            Console.WriteLine("Open standard txt file? ");
+            c = Console.ReadLine();
+            c = c.ToLower();
+            if (c == "n"){
+                Console.WriteLine("Type the file name: ");
+                 nameList = Console.ReadLine();
+                 nameList = nameList+".txt";
+            }
+            bool fileAnswer = verifyIfFile_txtExists(nameList);
+            if(fileAnswer == false){
+                return;
             }
             Console.WriteLine("How many users do you want to add: ");
             int usersNumbers = Convert.ToInt32(Console.ReadLine());
