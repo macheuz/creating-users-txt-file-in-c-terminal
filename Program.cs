@@ -12,7 +12,7 @@ namespace program
 
             public string Name{
                 get{return name;}
-                set{name = value;}
+                set{name = value.ToLower();}
             }
             public int Account{
                 get{return account;}
@@ -71,7 +71,6 @@ namespace program
     class Program
     {
         static string createFile(string archiveName){
-            archiveName = archiveName + ".txt";
             using (StreamWriter writer = new StreamWriter(archiveName, true)){
 	        writer.WriteLine("List of users");
 	        }
@@ -100,6 +99,21 @@ namespace program
                 Console.WriteLine("Adding new user: ");
                 Console.WriteLine("Name: ");
                 user[x].Name = Console.ReadLine();
+                user[x].Name = user[x].Name.ToUpper();
+                int i =0;
+                while(i<user[x].Name.Length){
+                    if(user[x].Name[i] >= 'A' && user[x].Name[i]<= 'Z'){
+                        Console.WriteLine("Invalid Name: {0}", user[x].Name);
+                        Console.WriteLine("Type a new Name: ");
+                        user[x].Name = Console.ReadLine();
+                        user[x].Name = user[x].Name.ToUpper();
+                        i = 0;
+                    }
+                    else{
+                        i++;
+                    }
+                    
+                }
                 Console.WriteLine("Account Number: ");
                 user[x].Account = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Phone number: ");
@@ -161,15 +175,18 @@ namespace program
             if (c == "y"){
                 Console.WriteLine("File name: ");
                 string? archiveName = Console.ReadLine();
+                archiveName = archiveName+".txt";
                  nameList = createFile(archiveName);
             }
-            Console.WriteLine("Open standard txt file? ");
-            c = Console.ReadLine();
-            c = c.ToLower();
-            if (c == "n"){
-                Console.WriteLine("Type the file name: ");
-                 nameList = Console.ReadLine();
-                 nameList = nameList+".txt";
+            else{
+                Console.WriteLine("Open standard txt file? ");
+                c = Console.ReadLine();
+                c = c.ToLower();
+                if (c == "n"){
+                    Console.WriteLine("Type the file name: ");
+                    nameList = Console.ReadLine();
+                    nameList = nameList+".txt";
+                }
             }
             bool fileAnswer = verifyIfFile_txtExists(nameList);
             if(fileAnswer == false){
