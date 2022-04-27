@@ -4,7 +4,7 @@ using System.Text;
 namespace program
 {
  
-    class Cliente{
+        class Cliente{
             private string name;
             private int account;
             private string phonenumber;
@@ -74,24 +74,23 @@ namespace program
             using (StreamWriter writer = new StreamWriter(archiveName, true)){
 	        writer.WriteLine("List of users");
 	        }
-            return archiveName;
+        return archiveName;
         }
 
 
-    static void writeAccount(Cliente [] user, string name){
-        string dir = "../Creating users list/"+name;
-       using (StreamWriter writer = new StreamWriter(@dir, true))
-{
-        for(int x=0; x<user.Length; x++){
-            writer.Write("{0};", user[x].Name);
-            writer.Write("{0};", user[x].Account);
-            writer.Write("{0};", user[x].Phonenumber);
-            writer.WriteLine("{0};{1};{2};{3};{4};{5};{6}; ", user[x].peopleAdress.Number, 
-            user[x].peopleAdress.Street, user[x].peopleAdress.Neighborhood, user[x].peopleAdress.City,
-            user[x].peopleAdress.State, user[x].peopleAdress.Country, user[x].peopleAdress.Zipcode);
+        static void writeAccount(Cliente [] user, string name){
+            string dir = "../Creating users list/"+name;
+        using (StreamWriter writer = new StreamWriter(@dir, true)){
+                for(int x=0; x<user.Length; x++){
+                    writer.Write("{0};", user[x].Name);
+                    writer.Write("{0};", user[x].Account);
+                    writer.Write("{0};", user[x].Phonenumber);
+                    writer.WriteLine("{0};{1};{2};{3};{4};{5};{6}; ", user[x].peopleAdress.Number, 
+                    user[x].peopleAdress.Street, user[x].peopleAdress.Neighborhood, user[x].peopleAdress.City,
+                    user[x].peopleAdress.State, user[x].peopleAdress.Country, user[x].peopleAdress.Zipcode);
+                }
+            }
         }
-}
-}
 
         static void addUser(Cliente[] user){
             for(int x = 0; x< user.Length; x++){
@@ -102,15 +101,15 @@ namespace program
                 user[x].Name = user[x].Name.ToUpper();
                 int i =0;
                 while(i<user[x].Name.Length){
-                    if(user[x].Name[i] >= 'A' && user[x].Name[i]<= 'Z'){
+                    if(Char.IsLetter(user[x].Name[i])){
+                        i++;
+                    }
+                    else{
                         Console.WriteLine("Invalid Name: {0}", user[x].Name);
                         Console.WriteLine("Type a new Name: ");
                         user[x].Name = Console.ReadLine();
                         user[x].Name = user[x].Name.ToUpper();
                         i = 0;
-                    }
-                    else{
-                        i++;
                     }
                     
                 }
