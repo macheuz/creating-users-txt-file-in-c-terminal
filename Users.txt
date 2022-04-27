@@ -1,4 +1,0 @@
-Lista de Usuarios
-Zoe; 12; 43;1098; Costa e Silva; Sao Pedro; Juiz de Fora; Minas Gerais; Brasil; 34543455; 
-Paulo; 12343; 4321;1432; Rio Branco; Centro; Juiz de Fora; Minas Geras; Brasil; 321223221; 
-

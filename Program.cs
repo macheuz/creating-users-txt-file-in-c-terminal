@@ -30,11 +30,11 @@ namespace program
 
         class Adress{
             private int number;
-            private string street;
-            private string neighborhood;
-            private string city;
-            private string state;
-            private string country;
+            private string? street;
+            private string? neighborhood;
+            private string? city;
+            private string? state;
+            private string? country;
             private int zipcode;
 
             public int Number{
@@ -70,15 +70,20 @@ namespace program
 
     class Program
     {
-        static void createFile(){
-        using (StreamWriter writer = new StreamWriter("Users.txt", true))
-	{
-	    writer.WriteLine("Lista de Usuarios");
-	}
+        static string createFile(){
+            Console.WriteLine("File name: ");
+            string? archiveName = Console.ReadLine();
+            archiveName = archiveName + ".txt";
+            using (StreamWriter writer = new StreamWriter(archiveName, true)){
+	        writer.WriteLine("List of users");
+	        }
+            return archiveName;
         }
-    static void writeAccount(Cliente [] user){
 
-       using (StreamWriter writer = new StreamWriter(@"../Creating users list/Users.txt", true))
+
+    static void writeAccount(Cliente [] user, string name){
+        string dir = "../Creating users list/"+name;
+       using (StreamWriter writer = new StreamWriter(@dir, true))
 {
         for(int x=0; x<user.Length; x++){
             writer.Write("{0};", user[x].Name);
@@ -129,6 +134,13 @@ namespace program
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Do you want to create a new list?");
+            Console.WriteLine("Y or N: ");
+            string? c = Console.ReadLine();
+            string nameList = "Users.txt";
+            if (c == "Y"){
+                 nameList = createFile();
+            }
             Console.WriteLine("How many users do you want to add: ");
             int usersNumbers = Convert.ToInt32(Console.ReadLine());
             int x = 0;
@@ -138,7 +150,7 @@ namespace program
                 Console.WriteLine(user[x]);
                 usersNumbers --;
             }
-            writeAccount(user);
+            writeAccount(user, nameList);
         }
     }
 }
