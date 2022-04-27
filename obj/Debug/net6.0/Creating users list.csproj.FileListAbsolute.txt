@@ -1,0 +1,15 @@
+/Users/mazo/Vianna/Projetos C#/Creating users list/bin/Debug/net6.0/Creating users list
+/Users/mazo/Vianna/Projetos C#/Creating users list/bin/Debug/net6.0/Creating users list.deps.json
+/Users/mazo/Vianna/Projetos C#/Creating users list/bin/Debug/net6.0/Creating users list.runtimeconfig.json
+/Users/mazo/Vianna/Projetos C#/Creating users list/bin/Debug/net6.0/Creating users list.dll
+/Users/mazo/Vianna/Projetos C#/Creating users list/bin/Debug/net6.0/Creating users list.pdb
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.csproj.AssemblyReference.cache
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.AssemblyInfoInputs.cache
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.AssemblyInfo.cs
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.csproj.CoreCompileInputs.cache
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.dll
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/refint/Creating users list.dll
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.pdb
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/Creating users list.genruntimeconfig.cache
+/Users/mazo/Vianna/Projetos C#/Creating users list/obj/Debug/net6.0/ref/Creating users list.dll
